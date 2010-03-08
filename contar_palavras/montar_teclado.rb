@@ -1,5 +1,5 @@
 def montar(array, custo)
-  File.open "teclado_#{custo}.txt", 'w' do |f|
+  File.open "teclados/teclado_#{custo}.txt", 'w' do |f|
     f.puts "Custo: #{custo}"
 
     array = array.transpose

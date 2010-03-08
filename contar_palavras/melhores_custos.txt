@@ -1,0 +1,12 @@
+Melhor custo achado: 116573
+Melhor matriz: [["s", "z", "d", "k"], ["t", " ", "e", "l"], ["u", " ", "f", "m"], ["v", "a", "g", "n"], ["w", "r", "h", "o"], ["x", "b", "i", "p"], ["y", "c", "j", "q"]]
+
+Melhor custo achado: 132414
+Melhor matriz: [["h", "n", "r", "q"], ["d", "a", "a", "p"], ["o", " ", "b", "z"], ["s", "e", "u", "f"], ["l", "x", "j", "t"], ["g", "k", "m", "c"], ["i", "v", "y", "w"]]
+
+
+Melhor custo achado: 156560
+Melhor matriz: [["u", "d", "t", "g"], ["i", "e", "f", "l"], ["u", "i", "q", "m"], ["r", "o", "s", "e"], ["a", " ", "n", "x"], ["j", "o", "a", "h"], ["w", "v", "y", "c"], ["k", "p", "z", "b"]]
+
+Melhor custo achado: 1573340
+Melhor matriz: [["i", "y", "c", "p"], ["v", "t", "o", "e"], ["a", "e", " ", "m"], ["l", "d", "o", "a"], ["n", "s", "w", "j"], ["z", "u", "u", "r"], ["q", "x", "i", "b"], ["f", "k", "g", "h"]]

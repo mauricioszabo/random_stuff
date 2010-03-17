@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require 'sdl'
-require 'hexagono'
+require 'teclado'
 
 SCREEN_X = 480
 SCREEN_Y = 200
@@ -17,14 +17,18 @@ font = SDL::TTF.open('fonts/verdana.ttf', 14)
   trap(s) { exit 0 }
 end
 
-hex = []
-hex << Hexagono.new('a', 0, 40)
-hex << Hexagono.new('b', 0, 80)
-hex << Hexagono.new('c', 0, 120)
-hex << Hexagono.new('d', 0, 160)
-
-hex << Hexagono.new('e', 30, 20)
-hex << Hexagono.new('f', 30, 60)
+#hex = []
+#hex << Hexagono.new('a', 0, 40)
+#hex << Hexagono.new('b', 0, 80)
+#hex << Hexagono.new('c', 0, 120)
+#hex << Hexagono.new('d', 0, 160)
+#
+#hex << Hexagono.new('e', 30, 20)
+#hex << Hexagono.new('f', 30, 60)
+#hex << Hexagono.new('g', 30, 100)
+#
+#hex << Hexagono.new('h', 60, 40)
+@teclado = Teclado.ler_teclado ARGV[0]
 while true
   while(event = SDL::Event2.poll)
     case event
@@ -33,6 +37,6 @@ while true
     end
   end
 
-  hex.each { |x| x.desenhar }
+  @teclado.desenhar
   @screen.flip
 end

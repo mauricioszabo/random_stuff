@@ -26,4 +26,8 @@ class Hexagono
     local_y = @y + (TAMANHO * @surfaces.size) / 2 - 10
     @@fonte.draw_blended_utf8(SDL::Screen.get, @letra, @x + 15, local_y, 0, 0, 0)
   end
+
+  def centro
+    return @x + TAMANHO, @y + TAMANHO
+  end
 end

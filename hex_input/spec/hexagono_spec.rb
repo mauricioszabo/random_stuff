@@ -41,4 +41,10 @@ describe Hexagono do
     hexagono = Hexagono.new('a', 10, 20)
     hexagono.desenhar
   end
+
+  it 'deve calcular o centro do hexágono' do
+    SDL::Surface.stub!(:load)
+    hexagono = Hexagono.new 'a', 10, 20
+    hexagono.centro.should == [ 30, 40 ]
+  end
 end

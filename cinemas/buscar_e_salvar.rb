@@ -41,9 +41,8 @@ cont = 1
 f = filmes.collect { |x| x.downcase.strip }
 f.uniq.each_with_index do |filme, indice|
   sinopse, site = buscar_sinopse(filme)
-  next if sinopse.nil?
-
   cont += 1
+  next if sinopse.nil?
   
   work[cont, 1] = filmes[indice]
   work[cont, 2] = site

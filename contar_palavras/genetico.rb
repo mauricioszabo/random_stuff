@@ -29,7 +29,7 @@ class Cromossomo
   end
 
   def vizinhos(x, y, matriz)
-    yielder x, y do |x1, y1|
+    yielder(x, y).each do |x1, y1|
       if x1 >= 0 && y1 >= 0 && x1 < 7 && y1 < 4
         yield matriz[x1][y1]
       end
@@ -84,18 +84,21 @@ class Cromossomo
 
   private
   def yielder(x, y)
-    yield x+0, y-1
-    yield x-1, y+0
-    yield x+0, y+1
-    yield x+1, y+0
-
+    array = [
+      [ x+0, y-1 ],
+      [ x-1, y+0 ],
+      [ x+0, y+1 ],
+      [ x+1, y+0 ]
+    ]
     if x % 2 == 0
-      yield x-1, y+1
-      yield x+1, y+1
+      array << [ x-1, y+1 ]
+      array << [ x+1, y+1 ]
     else
-      yield x-1, y-1
-      yield x+1, y-1
+      array << [ x-1, y-1 ]
+      array << [ x+1, y-1 ]
     end
+
+    return array
   end
 end
 

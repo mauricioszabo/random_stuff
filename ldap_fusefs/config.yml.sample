@@ -1,0 +1,2 @@
+host: openldap.host.server
+base: dc=some,dc=host,dc=com

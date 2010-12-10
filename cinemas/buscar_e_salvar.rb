@@ -7,6 +7,7 @@ require 'cinemark'
 require 'unibanco'
 
 require 'sinopse'
+require 'active_support'
 
 config = YAML.load_file('config.yml')
 session = GoogleSpreadsheet.login(config['login'], config['senha'])
@@ -20,6 +21,7 @@ work[1,2] = 'Cinema'
 cont = 1
 
 filmes = []
+puts "Buscando os filmes"
 [Playarte, Cinemark, Unibanco].each do |cinema|
   cinema.buscar.each do |filme|
     cont += 1
@@ -38,13 +40,15 @@ work[1, 2] = 'Site'
 work[1, 3] = 'Sinopse'
 cont = 1
 
+puts "Buscando as sinopses"
 f = filmes.collect { |x| x.downcase.strip }
 f.uniq.each_with_index do |filme, indice|
   sinopse, site = buscar_sinopse(filme)
-  cont += 1
   next if sinopse.nil?
   
-  work[cont, 1] = filmes[indice]
+  puts "Salvando sinopse do filme #{filme}"
+  cont += 1
+  work[cont, 1] = filme.capitalize
   work[cont, 2] = site
   work[cont, 3] = sinopse
 end

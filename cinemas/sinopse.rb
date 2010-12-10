@@ -10,8 +10,13 @@ def buscar_sinopse(argumento)
   string = string.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').to_s
 
   filme = string.gsub(/\s+/, "-").downcase
+  filme.gsub!(/[\[\]]/, '')
   uri = "http://www.adorocinema.com/filmes/#{URI.escape(filme)}"
-  body = Net::HTTP.get URI.parse(uri)
+  begin
+    body = Net::HTTP.get URI.parse(uri + "/")
+  rescue Timeout::Error
+    return
+  end
 
   scan = body.scan /<h4>sinopse:<\/h4>.*?<p>(.*?)<\/p>/m
 

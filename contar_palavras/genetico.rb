@@ -112,7 +112,7 @@ def genetico
 
   maximo = contagem = 0
 
-  20.times do
+  #20.times do
   GERACOES.times do |geracao|
     #Pega os mais aptos
     outros = cromossomos.sort { |e1, e2| e1.custo <=> e2.custo }
@@ -164,13 +164,14 @@ def genetico
   cromossomos = Array.new(MAX_GENES)
   cromossomos.collect! { Cromossomo.new  }
   cromossomos << apto
-  end
+  #end
 end
 
 def sorteia(outros)
   #return outros[rand(outros.size)]
 
-  random = rand(outros[-1].custo)
+  while (random = rand(outros[-1].custo)) >= outros[-1].custo; end
+
   c1 = outros.each_with_index { |e, i| break e if random > e.custo && random < outros[i+1].custo }
   c1 = outros[-1] if c1.is_a? Array
   return c1

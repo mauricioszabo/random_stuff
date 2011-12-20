@@ -1,6 +1,7 @@
 require 'net/http'
 require 'active_support'
 require 'yaml'
+require "nokogiri"
 
 $yaml = YAML.load_file("entities.yml")
 
@@ -18,13 +19,6 @@ def buscar_sinopse(argumento)
     return
   end
 
-  scan = body.scan /<h4>sinopse:<\/h4>.*?<p>(.*?)<\/p>/m
-
-  return if scan.empty?
-
-  scan = scan.to_s.gsub /&.*?;/ do |match|
-    $yaml[match]
-  end
-
-  return scan, uri
+  nokogiri = Nokogiri.parse(body)
+  return nokogiri.css("div#f-sinopse p").inner_text, uri
 end
